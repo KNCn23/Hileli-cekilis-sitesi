@@ -1,0 +1,124 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background: url('/static/background.jpeg') no-repeat center center fixed;
+    background-size: cover;
+    overflow: hidden;
+    position: relative;
+}
+
+.container {
+    text-align: center;
+    z-index: 1;
+}
+
+canvas#confetti-canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    pointer-events: none;
+}
+
+h1 {
+    background-color: rgba(255, 255, 255, 0.7); /* Hafif transparan arka plan */
+    padding: 15px;
+    border-radius: 10px;
+    display: inline-block;
+    color: #333;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+button {
+    margin-top: 20px;
+    padding: 12px 24px;
+    font-size: 20px;
+    cursor: pointer;
+    background-color: #00796b;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    transition: background-color 0.3s, transform 0.3s;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+button:hover {
+    background-color: #004d40;
+    transform: scale(1.05);
+}
+
+button.hidden {
+    display: none;
+}
+
+#loading-indicator {
+    display: none;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+#loading-indicator.visible {
+    display: flex;
+}
+
+.youtube-loader {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    border: 4px solid #ccc;
+    border-top: 4px solid #00796b;
+    border-radius: 50%;
+    animation: spin 0.5s linear infinite;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.comment-bubble {
+    background-color: #ff6f61;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 20px;
+    margin-top: 15px;
+    display: inline-block;
+    position: relative;
+    font-size: 18px;
+    opacity: 0;
+    transform: scale(0.8);
+    transition: opacity 1s, transform 0.5s;
+    max-width: 80%;
+    text-align: center;
+}
+
+.comment-bubble.visible {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.comment-bubble::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-width: 10px;
+    border-style: solid;
+    border-color: #ff6f61 transparent transparent transparent;
+}
+
+.hidden {
+    display: none;
+}
